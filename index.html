@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>1942</title>
+</head>
+<body>
+    <main>
+        <div id="game-intro">
+            <div class="first-screen">
+                <div class="score">
+                    <div class="score-text">Score</div>
+                    <div class="score-num">0</div>
+                </div>
+                <div class="game-over game-end">Game Over</div>
+                <div class="game-title">1942</div>
+                <button id="start-button">Start</button>
+                <button class="game-end" id="restart-button">Restart</button>
+                <div class="keybord">
+                    <button id="keyboard-controls">Keyboard Controls</button>
+                    <ul class="show-controls">
+                        <li>Left <span>&#x2192;</span> Left Arrow</li>
+                        <li>Right <span>&#x2192;</span> Right Arrow</li>
+                        <li>Start <span>&#x2192;</span> Enter</li>
+                        <li>Z <span>&#x2192;</span> Shoot</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="game-container">
+            <div id="game-screen"></div>
+        </div>
+
+    </main>
+
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

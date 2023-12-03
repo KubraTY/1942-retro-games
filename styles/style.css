@@ -1,0 +1,179 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+button{
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+}
+body {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+main{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#game-intro {
+    padding: 20px;
+    width: 500px;
+    height: 600px;
+    background-color:  #2b2b2b; 
+    color:white;
+}
+.first-screen{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+#game-container {
+    display: flex;
+    width: 100vw;
+    padding: 20px 0px;
+    justify-content: center;
+  }
+
+#game-screen {
+    display: none;
+    align-content: center;
+    padding: 20px 0px;
+    overflow: hidden;
+    position: relative;
+    background-image: url(../images/background.png);
+    background-size: cover;
+    animation: slide 30s linear infinite;
+   
+}
+
+.score-text{
+    text-transform: uppercase;
+    padding-bottom: 8px;
+}
+
+.game-over{
+    text-transform: uppercase;
+    color:tomato;
+    font-size: 16px;
+    letter-spacing: 0.7;
+    animation: scaleUpDown 3s infinite;
+}
+
+.game-title{
+    font-family: 'Nova Sqare';
+    font-size: 70px;
+    letter-spacing: 30px;
+    text-shadow: 10px 1px 10px #00ff00;
+}
+
+#start-button, #restart-button {
+    padding: 15px 30px;
+    color: #fff; 
+    border: 2px solid #008000; 
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+#start-button:hover , #restart-button:hover {
+    color: #008000;
+    border-color: #008000; 
+}
+
+#keyboard-controls{
+    color: white;
+    text-decoration: underline ;
+    font-size: 16px;
+    letter-spacing: 1.2px;
+}
+.show-controls{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+.show-controls.visible {
+    visibility: visible;
+    opacity: 1;
+}
+.show-controls li {
+    font-size: 14px;
+    padding-bottom: 8px;
+}
+.game-end {
+    display: none;
+}
+
+
+
+@keyframes scaleUpDown {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes slide {
+    0% {
+      background-position: 0 -3000px;
+    }
+   
+    100% {
+      background-position: 0 3000px;
+    }
+  }
