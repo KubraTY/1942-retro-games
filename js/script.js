@@ -9,8 +9,9 @@ window.onload = function () {
     });
 
     restartButton.addEventListener("click", function () {
-        restartGame();
+        startGame();
     });
+    
 
     function startGame() {
         console.log("start game");
@@ -20,9 +21,11 @@ window.onload = function () {
         game.start();
     }
 
+    /*
     function restartGame() {
         location.reload();
     }
+    */
 
     keyboardControlsButton.addEventListener("click", function () {
         toggleControlsVisibility();
