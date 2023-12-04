@@ -64,7 +64,7 @@ window.onload = function () {
                     break;
                 case 'KeyZ':
                     console.log('Shoot!');
-                    // Add your shooting logic here
+                    game.player.shoot();
                     break;
             }
 

@@ -16,6 +16,10 @@ class Player {
         this.element.style.left = `${left}px`;
         this.element.style.top = `${top}px`;
         this.gameScreen.appendChild(this.element);
+
+        this.bullet = null;
+        this.bullets = [];
+
     }
 
     move() {
@@ -37,6 +41,7 @@ class Player {
         }
 
         this.updatePosition();
+        this.updateBullets();
     }
 
 
@@ -45,4 +50,28 @@ class Player {
         this.element.style.top = `${this.top}px`;
     }
 
+    shoot() {
+        // Check if there is an existing bullet, if not, create a new one
+        this.bullet = new Bullet(
+            this.gameScreen,
+            this.left + this.width / 2 - 5,
+            this.top,
+            10,
+            20,
+            "./images/userBullet.png"
+        );
+        this.bullets.push(this.bullet);
+    }
+
+    updateBullets() {
+        // Update the position of all bullets in the array
+        this.bullets.forEach((bullet, index) => {
+            bullet.move();
+
+            // Remove the bullet from the array when it goes off the screen
+            if (bullet.top + bullet.height < 0) {
+                this.bullets.splice(index, 1);
+            }
+        });
+    }
 }
