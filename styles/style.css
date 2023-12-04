@@ -91,7 +91,7 @@ main{
     position: relative;
     background-image: url(../images/background.png);
     background-size: cover;
-    animation: slide 30s linear infinite;
+    animation: slide 60s linear infinite;
    
 }
 
