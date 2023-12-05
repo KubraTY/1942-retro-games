@@ -18,6 +18,13 @@ class Game {
             43,
             "images/plane.png"
         );
+        this.element = document.createElement("div");
+        this.element.style.position = "absolute";
+        this.element.style.width = `${this.width}px`;
+        this.element.style.height = `${this.height}px`;
+        this.element.style.left = `${this.left}px`;
+        this.element.style.top = `${this.top}px`;
+        this.gameScreen.appendChild(this.element);
         this.enemy = new Enemy(this.gameScreen)
     }
 
@@ -41,6 +48,8 @@ class Game {
         this.player.move();
         this.player.updateBullets();
 
+        this.element.innerText = this.score;
+        this.element.classList.toggle("score-num")
 
         for (let i = 0; i < this.enemies.length; i++) {
             const enemy = this.enemies[i]
@@ -65,6 +74,7 @@ class Game {
                   enemy.element.remove();
                   this.enemies.splice(i, 1);
                   this.score += 10;
+                  this.element.innerText = this.score
                   console.log(this.score)
                   // Deactivate the bullet after hitting an enemy
                   bullet.isActive = false;
@@ -100,7 +110,7 @@ class Game {
         this.gameScreen.style.display = "none";
         // Show end game screen
         this.startScreen.style.display = "block";
-        
+
         document.querySelector(".score-num").innerText = this.score.toString();
         document.querySelector("#start-button").style.display = "none";
         document.querySelector("#restart-button").style.display = "block";

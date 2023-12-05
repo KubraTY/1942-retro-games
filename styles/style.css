@@ -100,6 +100,12 @@ main{
     padding-bottom: 8px;
 }
 
+.score-num{
+    font-size: 16px;
+    font-family: 'Nova Square';
+    color: white;
+}
+
 .game-over{
     display: none;
     text-transform: uppercase;
@@ -110,8 +116,8 @@ main{
 }
 
 .game-title{
-    font-family: 'Nova Sqare';
-    font-size: 70px;
+    font-family: 'Nova Square';
+    font-size: 90px;
     letter-spacing: 30px;
     text-shadow: 10px 1px 10px #00ff00;
 }
