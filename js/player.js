@@ -58,7 +58,7 @@ class Player {
             this.top,
             10,
             20,
-            "./images/userBullet.png"
+            "images/userBullet.png"
         );
         this.bullets.push(this.bullet);
     }

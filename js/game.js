@@ -3,7 +3,6 @@ class Game {
     constructor() {
         this.startScreen = document.getElementById('game-intro');
         this.gameScreen = document.getElementById('game-screen');
-        this.gameEndScreen = document.getElementById('game-end');
         this.player = null;
         this.height = 600;
         this.width = 500;
@@ -17,7 +16,7 @@ class Game {
             500,
             59,
             43,
-            "./images/plane.png"
+            "images/plane.png"
         );
         this.enemy = new Enemy(this.gameScreen)
     }
@@ -87,7 +86,7 @@ class Game {
         this.startScreen.style.display = "block";
         document.querySelector("#start-button").style.display = "none";
         document.querySelector("#restart-button").style.display = "block";
-        document.querySelectorAll(".game-end").style.display = "block";
+        document.querySelector(".game-over").style.display = "block";
         
       }
 }

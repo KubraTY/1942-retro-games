@@ -6,7 +6,7 @@ class Enemy {
         this.width = 46;
         this.height = 36;
         this.element = document.createElement("img");
-        this.element.src = "./images/enemy0.png";
+        this.element.src = "images/enemy0.png";
         this.element.style.position = "absolute";
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;

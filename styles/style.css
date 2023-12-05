@@ -101,6 +101,7 @@ main{
 }
 
 .game-over{
+    display: none;
     text-transform: uppercase;
     color:tomato;
     font-size: 16px;
