@@ -32,7 +32,7 @@ class Game {
     }
 
     gameLoop() {
-        console.log("game loop")
+        //console.log("game loop")
         this.update();
         window.requestAnimationFrame(() => this.gameLoop())
     }
@@ -46,6 +46,7 @@ class Game {
             const enemy = this.enemies[i]
             enemy.move();
 
+
             if (this.player.didCollide(enemy)) {
                 // Remove the enemy element from the DOM
                 enemy.element.remove();
@@ -53,12 +54,27 @@ class Game {
                 this.enemies.splice(i, 1);
                 // Reduce player's lives by 1
                 this.lives--;
-                //document.getElementById('lives').innerText = this.lives
                 // Update the counter variable to account for the removed obstacle
                 i--;
             }
-            
-            if(this.lives === 0){
+
+            for (let j = 0; j < this.player.bullets.length; j++) {
+                const bullet = this.player.bullets[j];
+                if (bullet.didShooted(enemy)) {
+                  // Handle bullet-enemy collision
+                  enemy.element.remove();
+                  this.enemies.splice(i, 1);
+                  this.score += 10;
+                  console.log(this.score)
+                  // Deactivate the bullet after hitting an enemy
+                  bullet.isActive = false;
+                  
+                  i--; // Adjust index after removing an element
+                }
+              }
+
+
+            if (this.lives === 0) {
                 this.endGame();
             }
 
@@ -77,16 +93,18 @@ class Game {
     endGame() {
         this.player.element.remove();
         this.enemies.forEach(enemy => enemy.element.remove());
-    
+
         this.gameIsOver = true;
-    
+
         // Hide game screen
         this.gameScreen.style.display = "none";
         // Show end game screen
         this.startScreen.style.display = "block";
+        
+        document.querySelector(".score-num").innerText = this.score.toString();
         document.querySelector("#start-button").style.display = "none";
         document.querySelector("#restart-button").style.display = "block";
         document.querySelector(".game-over").style.display = "block";
-        
-      }
+
+    }
 }

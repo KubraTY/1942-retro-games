@@ -10,6 +10,7 @@ window.onload = function () {
 
     restartButton.addEventListener("click", function () {
         startGame();
+        location.reload();
     });
     
 
@@ -24,8 +25,9 @@ window.onload = function () {
     /*
     function restartGame() {
         location.reload();
-    }
-    */
+        startGame();
+    } */
+    
 
     keyboardControlsButton.addEventListener("click", function () {
         toggleControlsVisibility();
@@ -47,26 +49,26 @@ window.onload = function () {
             switch (key) {
                 case 'ArrowUp':
                 case 'KeyW':
-                    console.log('Go up!');
+                    //console.log('Go up!');
                     game.player.directionY = -1;
                     break;
                 case 'ArrowDown':
                 case 'KeyS':
-                    console.log('Go down!');
+                    //console.log('Go down!');
                     game.player.directionY = 1;
                     break;
                 case 'ArrowLeft':
                 case 'KeyA':
-                    console.log('Go left!');
+                    //console.log('Go left!');
                     game.player.directionX = -1;
                     break;
                 case 'ArrowRight':
                 case 'KeyD':
-                    console.log('Go right!');
+                    //console.log('Go right!');
                     game.player.directionX = 1;
                     break;
                 case 'KeyZ':
-                    console.log('Shoot!');
+                    //console.log('Shoot!');
                     game.player.shoot();
                     break;
             }
@@ -76,13 +78,13 @@ window.onload = function () {
                 if (
                     ['ArrowUp', 'KeyW', 'ArrowDown', 'KeyS'].includes(event.code)
                 ) {
-                    console.log('Stop moving on Y');
+                    //console.log('Stop moving on Y');
                     game.player.directionY = 0;
                 }
                 if (
                     ['ArrowLeft', 'KeyA', 'ArrowRight', 'KeyD'].includes(event.code)
                 ) {
-                    console.log('Stop moving on X');
+                    //console.log('Stop moving on X');
                     game.player.directionX = 0;
                 }
             });

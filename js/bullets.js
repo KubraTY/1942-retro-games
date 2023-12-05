@@ -14,6 +14,8 @@ class Bullet {
         this.element.style.left = `${left}px`;
         this.element.style.top = `${top}px`;
         this.gameScreen.appendChild(this.element);
+
+        this.isActive = true;
     }
 
     move() {
@@ -24,4 +26,24 @@ class Bullet {
     updatePosition() {
         this.element.style.top = `${this.top}px`;
     }
+
+    didShooted(enemy) {
+        if (this.isActive) {
+          const bulletRect = this.element.getBoundingClientRect();
+          const enemyRect = enemy.element.getBoundingClientRect();
+    
+          if (
+            bulletRect.left < enemyRect.right &&
+            bulletRect.right > enemyRect.left &&
+            bulletRect.top < enemyRect.bottom &&
+            bulletRect.bottom > enemyRect.top
+          ) {
+            // Deactivate the bullet on hitting an enemy
+            this.isActive = false;
+            return true;
+          }
+        }
+    
+        return false;
+      }
 }
