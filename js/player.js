@@ -16,7 +16,6 @@ class Player {
         this.element.style.left = `${left}px`;
         this.element.style.top = `${top}px`;
         this.gameScreen.appendChild(this.element);
-
         this.bullet = null;
         this.bullets = [];
 
@@ -51,7 +50,6 @@ class Player {
     }
 
     shoot() {
-        // Check if there is an existing bullet, if not, create a new one
         this.bullet = new Bullet(
             this.gameScreen,
             this.left + this.width / 2 - 5,
@@ -63,8 +61,8 @@ class Player {
         this.bullets.push(this.bullet);
     }
 
+     // Update the position of all bullets in the array
     updateBullets() {
-        // Update the position of all bullets in the array
         this.bullets.forEach((bullet, index) => {
             bullet.move();
 

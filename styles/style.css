@@ -106,6 +106,12 @@ main{
     color: white;
 }
 
+.gameScreen-lives{
+    font-size: 16px;
+    color:white;
+    font-family: 'Nova Square';
+}
+
 .game-over{
     display: none;
     text-transform: uppercase;

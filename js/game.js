@@ -25,6 +25,11 @@ class Game {
         this.element.style.left = `${this.left}px`;
         this.element.style.top = `${this.top}px`;
         this.gameScreen.appendChild(this.element);
+        this.live = document.createElement("div");
+        this.live.style.position = "absolute";
+        this.live.style.width = `${this.width / 4}px`;
+        this.live.style.height = `${this.height}px`;
+        this.gameScreen.appendChild(this.live);
         this.enemy = new Enemy(this.gameScreen)
     }
 
@@ -48,40 +53,42 @@ class Game {
         this.player.move();
         this.player.updateBullets();
 
+        //Show score and lives in the gameScreen
         this.element.innerText = this.score;
         this.element.classList.toggle("score-num")
 
+        this.live.classList.toggle("gameScreen-lives")
+        this.live.innerText = `lives ` + this.lives
+
+        //Enemy logic
         for (let i = 0; i < this.enemies.length; i++) {
             const enemy = this.enemies[i]
             enemy.move();
 
-
+            //player-enemy collide
             if (this.player.didCollide(enemy)) {
                 // Remove the enemy element from the DOM
                 enemy.element.remove();
-                // Remove enemy object from the array
                 this.enemies.splice(i, 1);
-                // Reduce player's lives by 1
                 this.lives--;
-                // Update the counter variable to account for the removed obstacle
                 i--;
             }
 
+            //enemy shooted
             for (let j = 0; j < this.player.bullets.length; j++) {
                 const bullet = this.player.bullets[j];
                 if (bullet.didShooted(enemy)) {
-                  // Handle bullet-enemy collision
-                  enemy.element.remove();
-                  this.enemies.splice(i, 1);
-                  this.score += 10;
-                  this.element.innerText = this.score
-                  console.log(this.score)
-                  // Deactivate the bullet after hitting an enemy
-                  bullet.isActive = false;
-                  
-                  i--; // Adjust index after removing an element
+                    // Handle bullet-enemy collision
+                    enemy.element.remove();
+                    this.enemies.splice(i, 1);
+                    this.score += 10;
+                    this.element.innerText = this.score
+                    console.log(this.score)
+                    // Deactivate the bullet after hitting an enemy
+                    bullet.isActive = false;
+                    i--;
                 }
-              }
+            }
 
 
             if (this.lives === 0) {
@@ -103,6 +110,7 @@ class Game {
     endGame() {
         this.player.element.remove();
         this.enemies.forEach(enemy => enemy.element.remove());
+        this.lives = 3;
 
         this.gameIsOver = true;
 

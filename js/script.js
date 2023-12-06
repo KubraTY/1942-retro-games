@@ -9,11 +9,12 @@ window.onload = function () {
     });
 
     restartButton.addEventListener("click", function () {
-        startGame();
-        location.reload();
+
+        console.log("restrart button")
+       startGame();
+       // location.reload();
     });
     
-
     function startGame() {
         console.log("start game");
 
@@ -21,13 +22,6 @@ window.onload = function () {
 
         game.start();
     }
-
-    /*
-    function restartGame() {
-        location.reload();
-        startGame();
-    } */
-    
 
     keyboardControlsButton.addEventListener("click", function () {
         toggleControlsVisibility();
@@ -41,7 +35,6 @@ window.onload = function () {
     function handleKeydown(event) {
         const key = event.code;
 
-        // Check if the pressed key is one of the arrow keys or the "Z" key
         if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'KeyZ'].includes(key)) {
             event.preventDefault();
 
@@ -50,22 +43,22 @@ window.onload = function () {
                 case 'ArrowUp':
                 case 'KeyW':
                     //console.log('Go up!');
-                    game.player.directionY = -1;
+                    game.player.directionY = -2;
                     break;
                 case 'ArrowDown':
                 case 'KeyS':
                     //console.log('Go down!');
-                    game.player.directionY = 1;
+                    game.player.directionY = 2;
                     break;
                 case 'ArrowLeft':
                 case 'KeyA':
                     //console.log('Go left!');
-                    game.player.directionX = -1;
+                    game.player.directionX = -2;
                     break;
                 case 'ArrowRight':
                 case 'KeyD':
                     //console.log('Go right!');
-                    game.player.directionX = 1;
+                    game.player.directionX = 2;
                     break;
                 case 'KeyZ':
                     //console.log('Shoot!');
@@ -90,6 +83,5 @@ window.onload = function () {
             });
         }
     }
-    // Add the handleKeydown function as an event listener for the keydown event
     window.addEventListener("keydown", handleKeydown);
 };
