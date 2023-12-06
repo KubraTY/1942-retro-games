@@ -78,7 +78,11 @@ class Game {
                 this.enemies.splice(i, 1);
                 this.lives--;
                 i--;
+
+                const collisionEffect = new CollisionEffect(enemy.left, enemy.top);
+
             }
+            
 
             //enemy shooted
             for (let j = 0; j < this.player.bullets.length; j++) {
@@ -93,6 +97,10 @@ class Game {
                     // Deactivate the bullet after hitting an enemy
                     bullet.isActive = false;
                     i--;
+
+                    const collisionEffect = new CollisionEffect(enemy.left, enemy.top);
+
+                    
                 }
             }
 
