@@ -30,7 +30,7 @@ class Game {
         this.live.style.width = `${this.width / 4}px`;
         this.live.style.height = `${this.height}px`;
         this.gameScreen.appendChild(this.live);
-        this.enemy = new Enemy(this.gameScreen)
+     
     }
 
     start() {
@@ -45,7 +45,13 @@ class Game {
 
     gameLoop() {
         //console.log("game loop")
-        this.update();
+        if (this.lives === 0) {
+            this.endGame();
+            return
+        }else{
+            this.update();
+        }
+       
         window.requestAnimationFrame(() => this.gameLoop())
     }
 
@@ -90,11 +96,6 @@ class Game {
                 }
             }
 
-
-            if (this.lives === 0) {
-                this.endGame();
-            }
-
             if (enemy.top > this.height + 50) {
                 enemy.element.remove();
                 this.enemies.splice(i, 1);
@@ -108,9 +109,6 @@ class Game {
     }
 
     endGame() {
-        this.player.element.remove();
-        this.enemies.forEach(enemy => enemy.element.remove());
-        this.lives = 3;
 
         this.gameIsOver = true;
 

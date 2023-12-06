@@ -2,7 +2,7 @@ window.onload = function () {
     const startButton = document.getElementById("start-button");
     const restartButton = document.getElementById("restart-button");
     const keyboardControlsButton = document.getElementById("keyboard-controls");
-
+    let game;
 
     startButton.addEventListener("click", function () {
         startGame();
@@ -10,11 +10,15 @@ window.onload = function () {
 
     restartButton.addEventListener("click", function () {
 
-        console.log("restrart button")
-       startGame();
-       // location.reload();
-    });
+        const children = game.gameScreen.querySelectorAll("*");
+        children.forEach((child)=>child.remove()) 
     
+        game = new Game();
+
+        game.start();
+        
+    });
+
     function startGame() {
         console.log("start game");
 
