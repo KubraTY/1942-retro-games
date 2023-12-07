@@ -43,6 +43,6 @@
 Game start, Game gameLoop, Game update, Player move, Player updateBullets, Player didCollide, Bullet didShoted, Game endGame
 
 ## Links
-Slides Link
-## [Github repository Link](https://github.com/KubraTY/1942-retro-games)
-## [Deployment Link]((https://kubraty.github.io/1942-retro-games/))
+## [Slides](https://docs.google.com/presentation/d/1fUk7airQmomMDQx7R0lwWgd2ET4Xu4sM/edit?usp=sharing&ouid=105558896661056557125&rtpof=true&sd=true)
+## [Github Repository](https://github.com/KubraTY/1942-retro-games)
+## [Deployment](https://kubraty.github.io/1942-retro-games/)
