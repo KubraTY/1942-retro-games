@@ -28,7 +28,7 @@
 
 ## Data structure
 - Game includes start(), gameLoop(), update(), endGame().
-- Player includes move(), updatePosition(), shoot(), updateBullets().
+- Player includes move(), updatePosition(), shoot(), updateBullets(), didCollide.
 - Enemy includes updatePosition(), move().
 - Effect includes remove().
 - Bullet includes move(), updatePosition(), didShooted().
@@ -39,10 +39,10 @@
 - Start Screen
 - Game Screen
 
-Task
-List of tasks in order of priority
+## Task
+Game start, Game gameLoop, Game update, Player move, Player updateBullets, Player didCollide, Bullet didShoted, Game endGame
 
 ## Links
 Slides Link
-## [Github repository Link] (https://github.com/KubraTY/1942-retro-games)
-## [Deployment Link] ((https://kubraty.github.io/1942-retro-games/))
+## [Github repository Link](https://github.com/KubraTY/1942-retro-games)
+## [Deployment Link]((https://kubraty.github.io/1942-retro-games/))
