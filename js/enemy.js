@@ -20,6 +20,7 @@ class Enemy {
         this.element.style.top = `${this.top}px`;
     }
     move() {
+
       this.top += 3;
 
       this.updatePosition();

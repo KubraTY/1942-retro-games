@@ -30,7 +30,14 @@ class Game {
         this.live.style.width = `${this.width / 4}px`;
         this.live.style.height = `${this.height}px`;
         this.gameScreen.appendChild(this.live);
-     
+
+        this.soundE = new AudioPlayer();
+        this.soundB = new AudioPlayer();
+        this.loadedSoundB = this.soundB.load('sounds/bgm_medium')
+        this.loadedSoundE  = this.soundE.load('sounds/enemy_destroy')
+        this.soundB.audio.volume = 0.1;
+        this.soundE.audio.volume = 0.4;
+
     }
 
     start() {
@@ -39,19 +46,21 @@ class Game {
 
         this.gameScreen.style.display = 'block';
         this.startScreen.style.display = 'none';
-
         this.gameLoop()
     }
 
     gameLoop() {
         //console.log("game loop")
-        if (this.lives === 0) {
+        if (this.lives === 0) {   
+            //this.soundB.stop();
             this.endGame();
             return
-        }else{
+        } else {
+            
+            this.soundB.play();
             this.update();
         }
-       
+
         window.requestAnimationFrame(() => this.gameLoop())
     }
 
@@ -79,10 +88,9 @@ class Game {
                 this.lives--;
                 i--;
 
+                this.soundE.play();
                 const collisionEffect = new CollisionEffect(enemy.left, enemy.top);
-
             }
-            
 
             //enemy shooted
             for (let j = 0; j < this.player.bullets.length; j++) {
@@ -98,9 +106,8 @@ class Game {
                     bullet.isActive = false;
                     i--;
 
+                    this.soundE.play();
                     const collisionEffect = new CollisionEffect(enemy.left, enemy.top);
-
-                    
                 }
             }
 
@@ -119,6 +126,8 @@ class Game {
     endGame() {
 
         this.gameIsOver = true;
+
+        this.soundB.stop()
 
         // Hide game screen
         this.gameScreen.style.display = "none";
